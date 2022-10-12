@@ -83,7 +83,7 @@ public class Heap <T extends Comparable<T>> implements Iheap <T>{
         }else{
             heapA[i].setKey(key);
 
-            while(i>1 && heapA[parent(i)].getKey()<heapA[i].getKey()){
+            while(i>0 && heapA[parent(i)].getKey()<heapA[i].getKey()){
                 Node<T> node = heapA[parent(i)];
                 heapA[parent(i)] = heapA[i];
                 heapA[i] = node;
@@ -108,6 +108,20 @@ public class Heap <T extends Comparable<T>> implements Iheap <T>{
             throw new Exception("The queue is empty");
         }else
         return heapA[0].getValue();
+    }
+    @Override
+    public T extract() throws Exception{
+        if(heapA[0] == null){
+            throw new Exception("The queue is empty");
+        }else{
+            Node<T> node = heapA[0];
+            heapSize = heapSize-1;
+            int j = 1;
+            for(int i = 0; i<= heapSize-1 && j<= heapSize;i++){
+                heapA[i] = heapA[j];
+            }
+            return node.getValue();
+        }
     }
 
     
