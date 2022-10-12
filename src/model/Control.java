@@ -12,7 +12,7 @@ public class Control<T extends Comparable<T>> {
     }
 
     public void searchClient(String id){
-        
+        System.out.println("hola");
     }
 
 }
