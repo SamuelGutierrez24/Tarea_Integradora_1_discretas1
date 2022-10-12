@@ -19,32 +19,42 @@ public class Main {
             Main ppal = new Main();
             int option;
             do{
-                System.out.println("ingrese la opcion del problema que quiera probar:\n\n" +
-                "(1) Invertir un String\n" +
-                "(2) Invertir una Pila\n" +
-                "(3) Invertir una Cola\n" +
-                "(4) Verificar si los parentesis estan balanceados\n");
-                option = sc.nextInt();
-                sc.nextLine();
-                switch(option){
-                    default :
-                    System.out.println("Digita un valor correcto.");
-                    break;
-                    case 0:
-                    System.out.println("En la buena");
-                    break;
-                    case 1:
-                        ppal.primero();
-                    break;
-                }
-                
-
+               option = ppal.showMenu();
+                ppal.selecOption(option);
             }while(option != 0);
 
            
         }
 
-        
+       public int showMenu(){
+        int option = 0;
+        System.out.println("ingrese la opcion del problema que quiera probar:\n\n" +
+        "(1) Search client\n" );
+        option = sc.nextInt();
+        sc.nextLine();
+        return option;
+       } 
+
+       public void selecOption(int option){
+        switch(option){
+            default :
+            System.out.println("Digita un valor correcto.");
+            break;
+            case 0:
+            System.out.println("En la buena");
+            break;
+            case 1:
+                searchClient();
+            break;
+        }
+       }
+
+       public void searchClient(){
+
+         System.out.println("Please give the client id: ");
+         String id = sc.nextLine();
+         control.searchClient(id);
+       }
 
       
 }

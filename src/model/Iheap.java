@@ -9,4 +9,5 @@ public interface Iheap<T> {
     public void increaseKey(int i, int key);
     public void insertU(T t,int key)throws Exception;
     public T getRoot()throws Exception;
+    public T extract()throws Exception;
 }

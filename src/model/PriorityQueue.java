@@ -23,9 +23,8 @@ public class PriorityQueue <T extends Comparable<T>> implements IPriorityQueue<T
     }
 
     @Override
-    public T extract() {
-        // TODO Auto-generated method stub
-        return null;
+    public T extract() throws Exception {
+        return heap.extract();
     }
 
     @Override
