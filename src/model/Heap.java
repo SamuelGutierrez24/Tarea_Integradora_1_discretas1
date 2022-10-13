@@ -115,12 +115,20 @@ public class Heap <T extends Comparable<T>> implements Iheap <T>{
             throw new Exception("The queue is empty");
         }else{
             Node<T> node = heapA[0];
+            heapA[0] = heapA[heapSize-1];
+            heapA[heapSize-1] = null;
             heapSize = heapSize-1;
+            maxHepify(0);
+            return node.getValue();
+
+
+
+            /*heapSize = heapSize-1;
             int j = 1;
             for(int i = 0; i<= heapSize-1 && j<= heapSize;i++){
                 heapA[i] = heapA[j];
             }
-            return node.getValue();
+            return node.getValue();*/
         }
     }
 
