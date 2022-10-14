@@ -6,7 +6,7 @@ public class Heap <T extends Comparable<T>> implements Iheap <T>{
     private int heapSize = 0;
     
     public Heap(){
-        heapA = (Node<T>[]) new Object[200];
+        heapA = (Node<T>[]) new Node[200];
     }
     @Override
     public void maxHepify(int i) {
@@ -133,7 +133,6 @@ public class Heap <T extends Comparable<T>> implements Iheap <T>{
     }
 
     
-
 
 
 }
