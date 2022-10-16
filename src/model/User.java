@@ -9,11 +9,16 @@ public class User {
     private boolean pregnancy;
     private boolean illness;
     
-    public User(String name, int age,int key,String id){
+
+
+    public User(String name, int age, String id, Gender geneder, boolean pregnancy, boolean illness, int key) {
         this.name = name;
-        this.id = id;
         this.age = age;
         this.key = key;
+        this.id = id;
+        this.geneder = geneder;
+        this.pregnancy = pregnancy;
+        this.illness = illness;
     }
 
     public int getAge() {
