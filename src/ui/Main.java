@@ -19,7 +19,6 @@ public class Main {
             Main ppal = new Main();
             
             int option;
-            
             ppal.showMenu();
         
            
@@ -38,15 +37,14 @@ public class Main {
                int mainOption = sc.nextInt();
 
                switch (mainOption) {
-                   case 1:
+                   case 1: 
+				   System.out.println("Select wich lab you want to go:\n\n" + "(1) Hematology\n" + "(2) General purpose\n" + "(0) Back");
+				   int lab = sc.nextInt(); 
+					searchClient(lab);
+
+                	   //boolean stopFlag2 = false;
                 	   
-                	   System.out.println("Select wich lab you want to go:\n\n" + "(1) Hematology\n" + "(2) General purpose\n" + "(0) Back");
-                	   
-                	   int lab = 0;  
-                	   
-                	   boolean stopFlag2 = false;
-                	   
-                	   while (!stopFlag2) {
+                	   /*while (!stopFlag2) {
                 	   
                 		   switch(lab) {
                 	   
@@ -65,7 +63,7 @@ public class Main {
                 			   break;		   
                 		   }
                 		   
-                	   }
+                	   }*/
                 	   
                    
                        break;
@@ -87,54 +85,22 @@ public class Main {
         
        } 
 
-       public void selectOption(int option){
-    	   
-    	   switch(option) {
-    	   
-    	   case 1:
-    		   System.out.println("Select wich lab you want to go:\n\n" + "(1) Hematology\n" + "(2) General purpose\n" + "(0) Back");
-    		   
-    		   int lab = 0;
-    		   
-    		   switch(lab) {
-    		   
-    		   case 1:
-    			   
-    			   break;
-    		   case 2:
-    			   
-    			   break;
-    		   default:
-    			   
-    			   break;
-    		   case 0:
-    			   
-    			   break;
-    		   }
-    		   
-    		   break;
-    	   case 2:
-    		   searchClient();
-            
-    		   break;
-    	   default :
-    		   System.out.println("Digita un valor correcto.");
-            
-    		   break;
-    	   case 0:
-    		   System.out.println("En la buena");
-            
-    		   break;    
-    	   }
-    	   
-       }
-
-       public void searchClient(){
+     
+       public void searchClient(int lab){
 
          System.out.println("Please give the client id: ");
          String id = sc.nextLine();
-         control.searchClient(id);
+        boolean answer = control.searchClientBool(id);
+		if(answer == true){
+			control.putInPriorityQ(lab, id);
+		}else{
+			registerClient();
+		}
+		
+
        }
 
+	
+	   
       
 }
