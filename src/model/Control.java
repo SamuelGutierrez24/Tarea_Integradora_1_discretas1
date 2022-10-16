@@ -10,22 +10,25 @@ public class Control<T extends Comparable<T> , K> {
         hematology = new PriorityQueue<>(); 
         general = new PriorityQueue<>();
         hashMap = new HashTable<>();
+
     
     }
 
-    public boolean searchClientBool(String id){
-        return true;
-
+    public void searchClient(String id){
+        System.out.println("hola");
     }
 
-    public T searchClient(String id ){
-        return hashMap.search(id);
-    }
+    public void registerClient(String name, int age, String id, int gender1, boolean pregnancy, boolean illness,  int key){
+        Gender gender;
+        if(gender1 ==1){
+        gender = Gender.MALE;
 
-    public void putInPriorityQ(int lab, String id){
+      }else {
+            gender = Gender.FEMALE;
 
+      }
+        User user = new User( name, age,  id,  gender, pregnancy,  illness, key);
 
-        T user = searchClient(id);
 
 
     }
