@@ -9,11 +9,13 @@ public class User {
     private boolean pregnancy;
     private boolean illness;
     
-    public User(String name, int age,int key,String id){
+    public User(String name, int age,int key,String id,boolean pregnancy,boolean illness){
         this.name = name;
         this.id = id;
         this.age = age;
         this.key = key;
+        this.pregnancy=pregnancy;
+        this.illness=illness;
     }
 
     public int getAge() {
@@ -37,5 +39,16 @@ public class User {
     public String getName() {
         return name;
     }
+    public void setIllness ( boolean illness) {
+        this.illness = illness;
+    }
+    public boolean getIllness()
+    { return illness;
+    }
 
+    public void setPregnancy ( boolean pregnancy) {this.pregnancy = pregnancy;}
+    
+    public boolean getPregnancy() {
+    		return pregnancy;
+    }
 }
