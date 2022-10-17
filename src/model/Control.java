@@ -49,6 +49,8 @@ public class Control<T extends Comparable<T> , K> {
 
     }
 
+    
+
     public String outOfTheQueue(int lab){
 
         

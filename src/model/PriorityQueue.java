@@ -2,7 +2,7 @@ package model;
 
 import java.util.concurrent.ExecutionException;
 
-public class PriorityQueue <T extends Comparable<T>> implements IPriorityQueue<T> {
+public class PriorityQueue <T> implements IPriorityQueue<T> {
     
     private Iheap<T> heap;
 
