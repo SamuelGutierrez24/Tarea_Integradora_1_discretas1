@@ -65,6 +65,7 @@ public class Heap <T> implements Iheap <T>{
     }
     @Override
     public void insertU(T user,int key) throws Exception{
+        
         Node<T> node = new Node<T>(Integer.MIN_VALUE, user);
         if(heapSize != heapA.length){
             heapA [heapSize] = node;

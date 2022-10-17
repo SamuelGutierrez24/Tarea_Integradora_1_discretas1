@@ -6,7 +6,7 @@ public interface Istack <T> {
 
     public T top();
 
-    public void push(T obj);
+    public void push(T obj, int lab);
 
     public T pop();
 

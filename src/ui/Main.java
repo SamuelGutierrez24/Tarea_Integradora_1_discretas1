@@ -32,7 +32,7 @@ public class Main {
 
            while (!stopFlag) {
         	   
-        	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) pull out of queue" + "(0) Exit" );
+        	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) pull out of queue\n" + "(0) Exit" );
 
                int mainOption = sc.nextInt();
 
@@ -41,37 +41,20 @@ public class Main {
 				   System.out.println("Select wich lab you want to go:\n\n" + "(1) Hematology\n" + "(2) General purpose\n" + "(0) Back");
 				   int lab = sc.nextInt(); 
 					searchClient(lab);
+                    break;
 
-                	   //boolean stopFlag2 = false;
-                	   
-                	   /*while (!stopFlag2) {
-                	   
-                		   switch(lab) {
-                	   
-                		   case 1:
-                		   
-                			   break;
-                		   case 2:
-                		   
-                			   break;
-                		   default:
-                		            		   
-                			   break;
-                		   case 0:
-                			   
-                			   stopFlag2 = true;
-                			   break;		   
-                		   }
-                		   
-                	   }*/
-                	   
-                   
-                       break;
                    case 2:
 				   
-				   registerClient();
+				   searchClient();
 				   
-                       break;
+                    break;
+
+					case 3:
+					
+						outOfQ();   
+
+					break;
+
                    case 0:
                    	
                        System.out.println("Bye.");
@@ -80,15 +63,13 @@ public class Main {
                        break;
                }
            }
-    	   
-  
-        
-       }
+    	}
 	   
 	   private void registerClient() {
 		boolean pregnant = false;
 		boolean illness = false;
 		int key = 0;
+		System.out.println("The client was not found in the data base.\n");
 		System.out.println("To register a client complete the following information");
 		System.out.println("Type the name of the client");
 		String name = sc.nextLine();
@@ -138,14 +119,18 @@ public class Main {
 
        }
 
-	  /*  public void outOfQ(int lab){
+	   public void outOfQ() throws Exception{
 
-		try{
-			control.outOfTheQueue(lab);
-		}catch{
+		System.out.println("Insert the number of lab queue (1) Hematology (2) General propuose: ");
+		int lab = sc.nextInt();
+		System.out.println(control.outOfTheQueue(lab));
+		
 
-		}
-	   }*/
+	   }
+
+	   public void searchClient(){
+		
+	   }
 
 	
 	   

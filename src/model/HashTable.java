@@ -1,6 +1,7 @@
 package model;
 
 public class HashTable <T, K> implements IhashTable<T, K> {
+    
     private HashNode<T,K> [] hashB;
 
     public HashTable(){
