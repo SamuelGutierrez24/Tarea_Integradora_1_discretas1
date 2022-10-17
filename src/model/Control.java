@@ -14,8 +14,24 @@ public class Control<T extends Comparable<T> , K> {
     
     }
 
-    public void searchClient(String id){
-        System.out.println("hola");
+    public boolean searchClientBool(String id){
+        T user = hashMap.search(id);
+        if(user != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void putInPriorityQ(int lab, String id) throws Exception{
+        T user = hashMap.search(id);
+        if(lab == 1){
+
+            //int priory = 
+            hematology.insert(user,lab );
+        }else{
+            general.insert(user, lab);
+        }
     }
 
     public void registerClient(String name, int age, String id, int gender1, boolean pregnancy, boolean illness,  int key){
@@ -31,6 +47,14 @@ public class Control<T extends Comparable<T> , K> {
 
 
 
+    }
+
+    public String outOfTheQueue(int lab){
+
+        
+
+
+        return "Done.";
     }
 
 }
