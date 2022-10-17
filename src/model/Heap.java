@@ -1,6 +1,6 @@
 package model;
 
-public class Heap <T extends Comparable<T>> implements Iheap <T>{
+public class Heap <T> implements Iheap <T>{
 
     private Node<T> [] heapA;
     private int heapSize = 0;
