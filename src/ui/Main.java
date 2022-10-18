@@ -34,12 +34,13 @@ public class Main {
         	   
         	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) pull out of queue\n" + "(0) Exit" );
 
-               int mainOption = sc.nextInt();
+               int mainOption = Integer.parseInt(sc.nextLine());
+			   
 
                switch (mainOption) {
                    case 1: 
 				   System.out.println("Select wich lab you want to go:\n\n" + "(1) Hematology\n" + "(2) General purpose\n" + "(0) Back");
-				   int lab = sc.nextInt(); 
+				   int lab = Integer.parseInt(sc.nextLine()); 
 					searchClient(lab);
                     break;
 
@@ -75,32 +76,38 @@ public class Main {
 		String name = sc.nextLine();
 		System.out.println("Type the age of the client");
 		int age = sc.nextInt();
+		sc.nextLine();
 		System.out.println("Type the id of the client");
 		String id = sc.nextLine();
-		System.out.println("Type the gender of the client. Type (1) if is Male or type (2) if is Female");
+		System.out.println("Type the gender of the client. Type (1) if is Female or type (2) if is Male");
 		int gender = sc.nextInt();
+		
 		if (gender == 1) {
 
 			System.out.println("Type (1) if the client is pregnant if not type (2)");
 			int pregnancy = sc.nextInt();
+
 			switch (pregnancy) {
-				case 1: pregnant=true;
+				case 1: 
+					pregnant=true;
 				break;
-				case 2: pregnant = false;
+		
 			}
 
 		}else{
 			System.out.println("The client can't be pregnant because is male");
 
+
 		}
 		System.out.println("Type (1) if the client has any important illness if not type (2)");
 		int ill = sc.nextInt();
+		sc.nextLine();
 		if (ill == 1){
 			illness = true;
 		}else{
 			illness = false;
 		}
-			control.registerClient(name, age, id, gender, pregnant, illness, key);
+		control.registerClient(name, age, id, gender, pregnant, illness, key);
 
 	}
 
@@ -110,13 +117,11 @@ public class Main {
          System.out.println("Please give the client id: ");
          String id = sc.nextLine();
         boolean answer = control.searchClientBool(id);
-		if(answer == true){
-			control.putInPriorityQ(lab, id);
-		}else{
-			registerClient();
-		}
-		
-
+			if(answer == true){
+				control.putInPriorityQ(lab, id);
+			}else{
+				registerClient();
+			}
        }
 
 	   public void outOfQ() throws Exception{

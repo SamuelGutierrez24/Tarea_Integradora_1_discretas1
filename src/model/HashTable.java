@@ -13,8 +13,9 @@ public class HashTable <T, K> implements IhashTable<T, K> {
         int position = hash(key);
         int firstHash = -1;
         int i = 0;
-
-        while(hashB[position] != null || position != firstHash ){
+        System.out.println(position);
+        
+        while(hashB[position] != null && position != firstHash ){
             
             firstHash = hash(key);
             position = hash(i,key);
@@ -38,7 +39,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     public int hash(K key) {
         
         String toKey = key.toString();
-        int value = -1;
+        int value = 0;
         int upgrade = 0;
         for(int i = toKey.length()-1;i>=0;i--){
 
@@ -58,9 +59,9 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     @Override
     public int hash(int i, K key) {
         String toKey = key.toString();
-        int value = -1;
+        int value = 0;
         int upgrade = 0;
-        for(int l = toKey.length()-1;l>=0;i--){
+        for(int l = toKey.length()-1;l>=0;l--){
 
             
             value += toKey.charAt(l)*Math.pow(128, upgrade);
@@ -68,10 +69,10 @@ public class HashTable <T, K> implements IhashTable<T, K> {
             upgrade++;
         }
         
-        double m = Math.pow(2, 3);
+        double m = 83; //Math.pow(2, 3);
         double a = (Math.sqrt(5)-1)/2;
         int position = (int) ((int) m*(value*a%1));
-        position = (int) ((int) position + 1*i  + (2*Math.pow(i,2))%m);
+        position = (int) ((int) (position + 1*i  + (2*Math.pow(i,2)))%m);
 
         return position;
     }
@@ -80,47 +81,53 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     public T search(K key) {
         
         int position = hash(key);
-        int firstHash = -1;
+        int firstHash = 0;
         int i = 0;
         boolean flag = false;
-        while(flag == false && i<8 ){
-            
-            firstHash = hash(key);
-
-            if(hashB[position].getKey()== key){
-                flag = true;
-            }else if(firstHash == position && i>0){
-                flag = true;
-            }else{
-                
-                position = hash(i,key);
-                i++;
-            }
-
-        }
-
-        if(firstHash == position){
         
-            if(hashB[position] != null){
-                HashNode<T,K> node = hashB[position];
-                while(node.getKey()!= key){
-                    
-                    if(node.getNext() != null){
-                        node = node.getNext();
-                    }else{
-                        return null;
-                    }
-                    
-                }
-                return node.getValue();
-            }else{
-                return null;
-            }
+        if(hashB[position] != null){
 
+            while(!flag && i<83 ){
+                
+                if(hashB[position].getKey()==key){
+                    flag = true;
+                }else if(firstHash == position && i>0){
+                    flag = true;
+                }else{
+                    position = hash(i,key);
+                    i++;
+                }
+                firstHash = hash(key);
+
+            }
+            
+            if(firstHash == position){
+        
+                if(hashB[position] != null){
+                    HashNode<T,K> node = hashB[position];
+                    while(node.getKey()!= key){
+                        
+                        if(node.getNext() != null){
+                            node = node.getNext();
+                        }else{
+                            return null;
+                        }
+                        
+                    }
+                    return node.getValue();
+                }else{
+                    return null;
+                }
+    
+            }else{
+                HashNode<T,K> node = hashB[position];
+                return node.getValue();
+            }
         }else{
-            HashNode<T,K> node = hashB[position];
-            return node.getValue();
+            return null;
         }
+
+      
     
     }
     
