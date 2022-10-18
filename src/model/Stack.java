@@ -19,9 +19,9 @@ public class Stack <T> implements Istack<T>{
     }
 
     @Override
-    public void push(T obj, int lab) {
+    public void push(T obj, int lab, boolean isEgress) {
 
-        Snode<T> node = new Snode<T>(obj, lab);
+        Snode<T> node = new Snode<T>(obj, lab, isEgress);
         node.setNext(first);
         first = node;
         

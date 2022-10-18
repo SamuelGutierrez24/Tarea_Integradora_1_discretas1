@@ -81,7 +81,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     public T search(K key) {
         
         int position = hash(key);
-        int firstHash = 0;
+        int firstHash = -1;
         int i = 0;
         boolean flag = false;
         
@@ -89,7 +89,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
 
             while(!flag && i<83 ){
                 
-                if(hashB[position].getKey()==key){
+                if(hashB[position].getKey().equals(key)){
                     flag = true;
                 }else if(firstHash == position && i>0){
                     flag = true;
@@ -97,14 +97,16 @@ public class HashTable <T, K> implements IhashTable<T, K> {
                     position = hash(i,key);
                     i++;
                 }
-                firstHash = hash(key);
-
+                if(i != 0){
+                    firstHash = hash(key);
+                }
             }
             
             if(firstHash == position){
         
                 if(hashB[position] != null){
                     HashNode<T,K> node = hashB[position];
+                    
                     while(node.getKey()!= key){
                         
                         if(node.getNext() != null){

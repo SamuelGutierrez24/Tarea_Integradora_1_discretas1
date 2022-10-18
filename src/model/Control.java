@@ -32,11 +32,14 @@ public class Control {
         
         //Extraemos el usuario de la base de datos
         User user = hashMap.search(id);
+        int priority = asignPriority(user);
         if(lab == 1){
-            int priority = asignPriority(user);
+            
             hematology.insert(user,priority );
+            cz.push(user, lab, false);
         }else{
-            general.insert(user, lab);
+            general.insert(user, priority);
+            cz.push(user, lab, false);
         }
     }
 
@@ -61,11 +64,11 @@ public class Control {
 
         if(lab == 1){
             User user = hematology.extract();
-            cz.push(user,lab);
+            cz.push(user,lab, true);
         }else{
             lab = 2;
             User user = general.extract();
-            cz.push(user,lab);
+            cz.push(user,lab, true);
         }        
         return "Done.";
     }

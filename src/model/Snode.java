@@ -3,12 +3,14 @@ package model;
 public class Snode<T> {
     private T obj; 
     private int lab;
+    private boolean isEgress;
     private Snode<T> next;
 
-    public Snode(T obj, int lab){
+    public Snode(T obj, int lab, boolean isEgress){
         this.obj = obj;
         this.next = null;
         this.lab = lab;
+        this.isEgress = isEgress;
     }
 
     public T getObj() {

@@ -43,7 +43,7 @@ public class Main {
 				   int lab = Integer.parseInt(sc.nextLine()); 
 					searchClient(lab);
                     break;
-
+					
                    case 2:
 				   
 				   searchClient();
@@ -54,6 +54,10 @@ public class Main {
 					
 						outOfQ();   
 
+					break;
+
+					case 4 :
+					
 					break;
 
                    case 0:
