@@ -6,7 +6,7 @@ public class Snode<T> {
     private boolean isEgress;
     private Snode<T> next;
 
-    public Snode(T obj, int lab, boolean isEgress){
+    public Snode(T obj, int lab,boolean isEgress){
         this.obj = obj;
         this.next = null;
         this.lab = lab;
@@ -29,5 +29,12 @@ public class Snode<T> {
     public void setLab(int lab) {
         this.lab = lab;
     }
+    public void setEgress(boolean isEgress) {
+        this.isEgress = isEgress;
+    }
+    public boolean getEgress(){
+        return this.isEgress;
+    }
+    
     
 }

@@ -6,12 +6,15 @@ public class Control {
     private PriorityQueue<User> hematology;
     private PriorityQueue<User> general;
     private HashTable<User,String > hashMap;
-    private Stack<User> cz;
+    private Stack<User> czGeneral;
+    private Stack<User> czHematology;
     public Control(){
         hematology = new PriorityQueue<>(); 
         general = new PriorityQueue<>();
         hashMap = new HashTable<>();
-        cz = new Stack<>();
+        czGeneral = new Stack<>();
+        czHematology = new Stack<>();
+         
 
     
     }
@@ -36,10 +39,10 @@ public class Control {
         if(lab == 1){
             
             hematology.insert(user,priority );
-            cz.push(user, lab, false);
+            czHematology.push(user, lab, false);
         }else{
             general.insert(user, priority);
-            cz.push(user, lab, false);
+            czGeneral.push(user, lab, false);
         }
     }
 
@@ -64,11 +67,11 @@ public class Control {
 
         if(lab == 1){
             User user = hematology.extract();
-            cz.push(user,lab, true);
+            czHematology.push(user,lab, true);
         }else{
             lab = 2;
             User user = general.extract();
-            cz.push(user,lab, true);
+            czGeneral.push(user,lab, true);
         }        
         return "Done.";
     }
@@ -92,6 +95,43 @@ public class Control {
         return priority;
     }
 
+
+    public String undo(int lab) throws Exception{
+        boolean isEgress;
+        String out = "Done.";
+
+        if(lab == 1){
+            
+            if(czHematology.isEmpty()==false){
+
+                isEgress = czHematology.topIsEgress();
+                User user = czHematology.pop();
+                if(isEgress == true){
+                    hematology.insert(user, 20);
+                }else{
+                    hematology.extract();
+                }
+            }else{
+                out = "The stack is empty";
+            }    
+
+        }else{
+
+            if(czGeneral.isEmpty() == false){
+                isEgress = czGeneral.topIsEgress();
+                User user = czGeneral.pop();
+                if(isEgress == true){
+                    general.insert(user, 20);
+                }else{
+                    general.extract();
+                }
+            }else{
+                out = "The stack is empty";
+            }    
+
+        }
+        return out;
+    }
        
 
 }

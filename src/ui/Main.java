@@ -32,7 +32,7 @@ public class Main {
 
            while (!stopFlag) {
         	   
-        	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) pull out of queue\n" + "(0) Exit" );
+        	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) pull out of queue\n" + "(4) Undo" + "(0) Exit" );
 
                int mainOption = Integer.parseInt(sc.nextLine());
 			   
@@ -57,7 +57,7 @@ public class Main {
 					break;
 
 					case 4 :
-					
+						undo();
 					break;
 
                    case 0:
@@ -139,6 +139,13 @@ public class Main {
 
 	   public void searchClient(){
 		
+	   }
+
+	   public void undo()throws Exception{
+		System.out.println("¿In wich lab you whant to undo?");
+		int lab = sc.nextInt();
+		sc.nextLine();
+		System.out.println(control.undo(lab));
 	   }
 
 	

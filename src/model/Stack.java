@@ -35,6 +35,9 @@ public class Stack <T> implements Istack<T>{
         return node.getObj();
 
     }
+    public boolean topIsEgress(){
+        return first.getEgress();
+    }
     
 
 
