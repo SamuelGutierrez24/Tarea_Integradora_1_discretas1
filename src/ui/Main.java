@@ -3,6 +3,7 @@ package ui;
 import java.util.Scanner;
 
 import model.Control;
+import model.Gender;
 
 public class Main {
     
@@ -25,6 +26,8 @@ public class Main {
         }
 
        public void showMenu() throws Exception {
+    	      
+    	   control.loadTxt();
     	   
     	   System.out.println("Welcome!\n" );
     	   
@@ -62,6 +65,8 @@ public class Main {
 
                    case 0:
                    	
+                	   control.hashMapToTxt();
+                	    
                        System.out.println("Bye.");
                        
                        stopFlag = true;

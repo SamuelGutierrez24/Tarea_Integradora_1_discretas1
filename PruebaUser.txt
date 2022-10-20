@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Collin",
+    "age": 18,
+    "key": 7777,
+    "id": "1",
+    "geneder": "MALE",
+    "pregnancy": false,
+    "illness": false
+  },
+  {
+    "name": "Samuel",
+    "age": 19,
+    "key": 0,
+    "id": "777",
+    "geneder": "FEMALE",
+    "pregnancy": false,
+    "illness": false
+  },
+  {
+    "name": "Brawn",
+    "age": 18,
+    "key": 1234,
+    "id": "2",
+    "geneder": "MALE",
+    "pregnancy": false,
+    "illness": false
+  }
+]
