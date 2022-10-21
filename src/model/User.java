@@ -64,7 +64,7 @@ public class User {
         String out = "";
 
 
-        out += getName() +  "\n" + getId() +  "\n" + "Priority : " + getKey(); 
+        out += getName() +  "-" + getId() +  "-" + "Priority : " + getKey(); 
 
         return out;
     }

@@ -1,8 +1,17 @@
 [
   {
+    "name": "Samuel2",
+    "age": 18,
+    "key": 1,
+    "id": "1007370844",
+    "geneder": "FEMALE",
+    "pregnancy": false,
+    "illness": true
+  },
+  {
     "name": "Collin",
     "age": 18,
-    "key": 7777,
+    "key": 0,
     "id": "1",
     "geneder": "MALE",
     "pregnancy": false,
@@ -20,7 +29,7 @@
   {
     "name": "Brawn",
     "age": 18,
-    "key": 1234,
+    "key": 0,
     "id": "2",
     "geneder": "MALE",
     "pregnancy": false,

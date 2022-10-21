@@ -171,9 +171,9 @@ public class Heap <T> implements Iheap <T>{
     @Override
     public T [] clone(){
         
-        T [] heapAA = (T[]) new User [heapSize-1];
+        T [] heapAA = (T[]) new User [heapSize];
 
-        for(int i = 0 ; i<heapSize;i++){
+        for(int i = 0 ; i<=heapSize-1;i++){
             heapAA[i] = heapA[i].getValue();
         }
 

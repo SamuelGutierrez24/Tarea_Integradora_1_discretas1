@@ -197,7 +197,7 @@ public class Control {
              User [] forPrint = hematology.clone();
             forPrint = sortIntegerArrayInsertion(forPrint);
             for(int i = forPrint.length-1;i>=0;i--){
-                out += "----" +  forPrint[i].toString();
+                out += "[ " +  forPrint[i].toString() + " ]-";
             }
 
 
@@ -206,7 +206,7 @@ public class Control {
             User [] forPrint = general.clone();
             forPrint = sortIntegerArrayInsertion(forPrint);
             for(int i = forPrint.length-1;i>=0;i--){
-                out += "----" +  forPrint[i].toString();
+                out += "[" +  forPrint[i].toString() + "]";
             }
 
 
@@ -214,11 +214,12 @@ public class Control {
         return out;
     }
 
-    public User[] sortIntegerArrayInsertion(User [] array) {
+     public User[] sortIntegerArrayInsertion(User [] array) {
     
         
         for (int rojo = 1; rojo < array.length; rojo++) {
             int valorRojo = array[rojo].getKey(); //guardar prioridad
+            User userRojo = array[rojo];
             int verde = rojo-1; //indice
             int valorVerde = array[verde].getKey(); //guardar prioridad
             while ( verde > -1 && (valorVerde = array[verde].getKey()) > valorRojo ) {
@@ -226,7 +227,7 @@ public class Control {
                 array[verde+1] = array[verde];
                 verde--;
             }
-            array[verde+1] = array[rojo];
+            array[verde+1] = userRojo;
         }
        
         return array;

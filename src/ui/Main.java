@@ -141,6 +141,7 @@ public class Main {
 
 		System.out.println("Insert the number of lab queue (1) Hematology (2) General propuose: ");
 		int lab = sc.nextInt();
+		sc.nextLine();
 		System.out.println(control.outOfTheQueue(lab));
 		
 
@@ -154,7 +155,7 @@ public class Main {
 	   }
 
 	   public void undo()throws Exception{
-		System.out.println("¿In wich lab you whant to undo?");
+		System.out.println("¿In wich lab you whant to undo? (1) Hematology (2) General propouse");
 		int lab = sc.nextInt();
 		sc.nextLine();
 		System.out.println(control.undo(lab));
