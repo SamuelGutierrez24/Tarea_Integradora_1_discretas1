@@ -9,6 +9,15 @@
     "illness": true
   },
   {
+    "name": "prueba",
+    "age": 24,
+    "key": 0,
+    "id": "222222",
+    "geneder": "MALE",
+    "pregnancy": false,
+    "illness": false
+  },
+  {
     "name": "Collin",
     "age": 18,
     "key": 0,
@@ -16,6 +25,33 @@
     "geneder": "MALE",
     "pregnancy": false,
     "illness": false
+  },
+  {
+    "name": "Julio",
+    "age": 67,
+    "key": 0,
+    "id": "377289",
+    "geneder": "FEMALE",
+    "pregnancy": false,
+    "illness": true
+  },
+  {
+    "name": "fuck",
+    "age": 30,
+    "key": 0,
+    "id": "333333",
+    "geneder": "FEMALE",
+    "pregnancy": false,
+    "illness": true
+  },
+  {
+    "name": "Juanito",
+    "age": 19,
+    "key": 0,
+    "id": "1105360291",
+    "geneder": "FEMALE",
+    "pregnancy": false,
+    "illness": true
   },
   {
     "name": "Samuel",
@@ -27,12 +63,21 @@
     "illness": false
   },
   {
-    "name": "Brawn",
-    "age": 18,
-    "key": 0,
-    "id": "2",
+    "name": "prueba5",
+    "age": 33,
+    "key": 1,
+    "id": "444444",
     "geneder": "MALE",
-    "pregnancy": false,
+    "pregnancy": true,
     "illness": false
+  },
+  {
+    "name": "prueba",
+    "age": 20,
+    "key": 0,
+    "id": "7",
+    "geneder": "FEMALE",
+    "pregnancy": false,
+    "illness": true
   }
 ]
