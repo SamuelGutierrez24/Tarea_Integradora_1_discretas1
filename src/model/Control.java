@@ -36,8 +36,8 @@ public class Control {
         //Extraemos el usuario de la base de datos
         User user = hashMap.search(id);
         int priority = asignPriority(user);
+        user.setKey(priority);
         if(lab == 1){
-            
             hematology.insert(user,priority );
             czHematology.push(user, lab, false);
         }else{
@@ -106,10 +106,12 @@ public class Control {
 
                 isEgress = czHematology.topIsEgress();
                 User user = czHematology.pop();
+
                 if(isEgress == true){
                     hematology.insert(user, 20);
                 }else{
-                    hematology.extract();
+                    
+                    hematology.extractByUndo(user);
                 }
             }else{
                 out = "The stack is empty";
@@ -123,7 +125,8 @@ public class Control {
                 if(isEgress == true){
                     general.insert(user, 20);
                 }else{
-                    general.extract();
+
+                    general.extractByUndo(user);
                 }
             }else{
                 out = "The stack is empty";
@@ -132,9 +135,56 @@ public class Control {
         }
         return out;
     }
+
+    public String showPriorityQ(int lab){
+        String out = "";
+
+        if(lab == 1){
+
+
+             User [] forPrint = hematology.clone();
+            forPrint = sortIntegerArrayInsertion(forPrint);
+            for(int i = forPrint.length-1;i>=0;i--){
+                out += "----" +  forPrint[i].toString();
+            }
+
+
+        }else{
+
+            User [] forPrint = general.clone();
+            forPrint = sortIntegerArrayInsertion(forPrint);
+            for(int i = forPrint.length-1;i>=0;i--){
+                out += "----" +  forPrint[i].toString();
+            }
+
+
+        }
+        return out;
+    }
+
+    public User[] sortIntegerArrayInsertion(User [] array) {
+    
+        
+        for (int rojo = 1; rojo < array.length; rojo++) {
+            int valorRojo = array[rojo].getKey(); //guardar prioridad
+            int verde = rojo-1; //indice
+            int valorVerde = array[verde].getKey(); //guardar prioridad
+            while ( verde > -1 && (valorVerde = array[verde].getKey()) > valorRojo ) {
+                valorVerde = array[verde].getKey();
+                array[verde+1] = array[verde];
+                verde--;
+            }
+            array[verde+1] = array[rojo];
+        }
        
+        return array;
+       
+    }
 
 }
+       
+
+
 
     
 

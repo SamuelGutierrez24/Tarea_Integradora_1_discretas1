@@ -10,4 +10,9 @@ public interface Iheap<T> {
     public void insertU(T t,int key)throws Exception;
     public T getRoot()throws Exception;
     public T extract()throws Exception;
+    public void extractByUndo(T user) throws Exception;
+    public int getHeapsize();
+    public T [] clone();
+    
+    
 }

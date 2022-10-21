@@ -133,6 +133,55 @@ public class Heap <T> implements Iheap <T>{
         }
     }
 
+    public void buildMaxHeap2() {
+        heapSize = heapSize-1;
+        int start = (heapSize-2)/2;
+        for(int i = start;i>=0;i--){
+            maxHepify(i);
+        }
+    }
+    @Override
+    public void extractByUndo(T user)throws Exception{
+
+        boolean flag = true;
+        int position = 0;
+        for(int i = 0;i<=heapSize-1 || !flag;i++){
+            if(heapA[i].equals(user)){
+                heapA[i]=null;
+                flag = false;
+                position = i;
+            }
+        }
+
+        for(int i = position;i<=heapSize-2;i++){
+
+            if(heapA[i+1] != null){
+                heapA[i] = heapA[i+1];
+            }
+        }
+
+        buildMaxHeap2();
+        
+
+    }
+    @Override
+    public int getHeapsize(){
+        return heapSize;
+    }
+    @Override
+    public T [] clone(){
+        
+        T [] heapAA = (T[]) new User [heapSize-1];
+
+        for(int i = 0 ; i<heapSize;i++){
+            heapAA[i] = heapA[i].getValue();
+        }
+
+        return heapAA;
+    
+    }
+
+
     
 
 

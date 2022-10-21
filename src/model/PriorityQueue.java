@@ -2,7 +2,7 @@ package model;
 
 import java.util.concurrent.ExecutionException;
 
-public class PriorityQueue <T> implements IPriorityQueue<T> {
+public class PriorityQueue <T>  implements IPriorityQueue<T> {
     
     private Iheap<T> heap;
 
@@ -32,4 +32,15 @@ public class PriorityQueue <T> implements IPriorityQueue<T> {
         // TODO Auto-generated method stub
         
     }
+    public void extractByUndo(T user)throws Exception{
+        heap.extractByUndo( user);
+    }
+    
+    public int getHeapsize(){
+        return heap.getHeapsize();
+    }
+    public T[] clone(){
+        return heap.clone();
+    }
+
 }

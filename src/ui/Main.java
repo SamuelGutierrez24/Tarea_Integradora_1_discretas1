@@ -32,7 +32,7 @@ public class Main {
 
            while (!stopFlag) {
         	   
-        	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) pull out of queue\n" + "(4) Undo" + "(0) Exit" );
+        	   System.out.println("Select what do you want to do:\n\n" + "(1) Enter to a lab\n" + "(2) Search client\n" + "(3) Pull out of queue\n" + "(4) Undo \n" + "(5) Show a lab order \n " + "(6) Register a client \n" + "(0) Exit" );
 
                int mainOption = Integer.parseInt(sc.nextLine());
 			   

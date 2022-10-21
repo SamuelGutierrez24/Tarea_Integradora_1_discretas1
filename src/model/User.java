@@ -54,4 +54,14 @@ public class User {
     public boolean getPregnancy() {
     		return pregnancy;
     }
+
+    @Override
+    public String toString(){
+        String out = "";
+
+
+        out += getName() +  "\n" + getId() +  "\n" + "Priority : " + getKey(); 
+
+        return out;
+    }
 }
