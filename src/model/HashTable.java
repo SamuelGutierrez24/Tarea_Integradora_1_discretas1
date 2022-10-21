@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class HashTable <T, K> implements IhashTable<T, K> {
     
     private HashNode<T,K> [] hashB;
@@ -133,8 +135,28 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     
     }
     
-
+    public int getLength(){
+    	
+    	return hashB.length;
+    	
+    }
     
+    public T getValue(int i) {
+    	
+    	return hashB[i].getValue();	
+    	
+    }
+    
+    public boolean isEmpty(int i) {
+    	
+    	boolean x = false;
+    	
+    	if(hashB[i] == null) {
+    		x = true;
+    	}
+    	
+    	return x;
+    }
     
    
         

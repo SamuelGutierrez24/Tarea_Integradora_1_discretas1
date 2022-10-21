@@ -48,6 +48,10 @@ public class User {
     public boolean getIllness()
     { return illness;
     }
+    
+    public Gender getGender() {
+    	return geneder;
+    }
 
     public void setPregnancy ( boolean pregnancy) {this.pregnancy = pregnancy;}
     

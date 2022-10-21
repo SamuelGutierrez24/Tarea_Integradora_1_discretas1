@@ -1,5 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+
+import Read.ToJsonReader;
+import Read.ToJsonWriter;
 
 public class Control {
     
@@ -94,6 +98,42 @@ public class Control {
         }
         return priority;
     }
+    
+    public void hashMapToTxt() {
+    	
+    	ArrayList<User> users = new ArrayList<>();
+    	
+    	for(int i = 0; i < hashMap.getLength() ; i++){
+    		
+    		if(hashMap.isEmpty(i) == false) {
+    			users.add(hashMap.getValue(i));
+    		}
+    		
+    	}
+    	
+    	String x = "";
+    	
+    	for(int i = 0; i < users.size(); i++) {
+    		x += users.get(i);
+    	}
+    	
+    	ToJsonWriter.write(users);
+    	
+    	System.out.println(x.toString());
+    }
+    
+    public void loadTxt() {
+    	
+    	for(int i = 0; i < ToJsonReader.read().size(); i++) {
+    	
+    		hashMap.insert(ToJsonReader.read().get(i).getId(), ToJsonReader.read().get(i));  
+    	
+    	}
+    	
+    	
+    }
+    
+
 
 
     public String undo(int lab) throws Exception{
@@ -178,7 +218,7 @@ public class Control {
         }
        
         return array;
-       
+
     }
 
 }
