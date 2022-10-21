@@ -19,9 +19,6 @@ import java.util.logging.Logger;
 
 public class ToJsonReader {
 
-    public static void main(String[] args) {
-    	
-    }
     
     public static ArrayList<User> read() {
     	

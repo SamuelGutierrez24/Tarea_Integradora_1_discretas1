@@ -3,7 +3,7 @@ package ui;
 import java.util.Scanner;
 
 import model.Control;
-import model.Gender;
+
 
 public class Main {
     

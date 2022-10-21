@@ -18,11 +18,6 @@ import model.*;
 
 public class ToJsonWriter {
 	
-	public static void main(String[] args) {
-       
-
-    }
-	
 	public static void write(ArrayList x) {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
