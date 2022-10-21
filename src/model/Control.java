@@ -35,6 +35,18 @@ public class Control {
         }
     }
 
+    public String searchClient(String id){
+
+        //Comprobamos que 
+        User user= hashMap.search(id);
+        
+        if(user != null){
+            return user.toString();
+        }else{
+            return "He is not registered";
+        }
+    }
+
     public void putInPriorityQ(int lab, String id) throws Exception{
         
         //Extraemos el usuario de la base de datos

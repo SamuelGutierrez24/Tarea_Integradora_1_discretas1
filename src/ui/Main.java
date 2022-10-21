@@ -63,6 +63,10 @@ public class Main {
 						undo();
 					break;
 
+					case 5:
+						showOrder();
+					break;
+
                    case 0:
                    	
                 	   control.hashMapToTxt();
@@ -143,7 +147,10 @@ public class Main {
 	   }
 
 	   public void searchClient(){
-		
+
+		System.out.println("Please enter the client id:");
+		String id = sc.nextLine();
+		System.out.println(control.searchClient(id));
 	   }
 
 	   public void undo()throws Exception{
@@ -151,6 +158,13 @@ public class Main {
 		int lab = sc.nextInt();
 		sc.nextLine();
 		System.out.println(control.undo(lab));
+	   }
+
+	   public void showOrder(){
+		System.out.println("Please enter the lab which you want to see the order (1) Hematology (2) General propouse : ");
+		int lab = sc.nextInt();
+		sc.nextLine();
+		System.out.println(control.showPriorityQ(lab));
 	   }
 
 	
