@@ -140,10 +140,11 @@ public class Heap <T> implements Iheap <T>{
     @Override
     public void extractByUndo(T user)throws Exception{
 
+        int aux = -1;
         boolean flag = true;
         int position = 0;
-        for(int i = 0;i<=heapSize-1 || !flag;i++){
-            if(heapA[i].equals(user)){
+        for(int i = 0;i<=heapSize-1 && flag;i++){
+            if(heapA[i].getValue().equals(user)){
                 heapA[i]=null;
                 flag = false;
                 position = i;
@@ -155,12 +156,16 @@ public class Heap <T> implements Iheap <T>{
             if(heapA[i+1] != null){
                 heapA[i] = heapA[i+1];
             }
+            aux = i+1;
         }
-
+        if(aux != -1){
+            heapA[aux] = null;
+        }
+        
         buildMaxHeap2();
         
-
     }
+
     @Override
     public int getHeapsize(){
         return heapSize;

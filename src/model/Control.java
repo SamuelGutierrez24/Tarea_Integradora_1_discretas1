@@ -63,14 +63,8 @@ public class Control {
 
    
     public void registerClient(String name, int age, String id, int gender1, boolean pregnancy, boolean illness,  int key){
-<<<<<<< HEAD
-        
-        Gender gender = null;
-        
-=======
     	Gender gender = null;
 
->>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
         switch(gender1){
             case 1:
                 gender = Gender.FEMALE;
@@ -79,11 +73,8 @@ public class Control {
                 gender = Gender.MALE;
             break;
         }
-<<<<<<< HEAD
-        
-=======
+    
       
->>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
         User user = new User( name, age,  id,  gender, pregnancy,  illness, key);
         //Insertamos el usuario en la base de datos
         hashMap.insert(id,user);
@@ -130,11 +121,6 @@ public class Control {
     	for(int i = 0; i < hashMap.getLength() ; i++){
     		
     		if(hashMap.isEmpty(i) == false) {
-<<<<<<< HEAD
-    			users.add(hashMap.getValue(i));
-                System.out.println(hashMap.getValue(i).getGender());
-    		}
-=======
 
                 users.add(hashMap.getValue(i));
                 //System.out.println(hashMap.getValue(i) + " - " + hashMap.getValue(i).getId() + " - " + hashMap.getValue(i).getGender());
@@ -146,11 +132,12 @@ public class Control {
 
         			while (node.getNext() != null){
         				users.add(node.getValue());
+
+                        node = node.getNext();
         			}
                 }
 
     		} 
->>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
     		
     	}
     	
@@ -223,14 +210,9 @@ public class Control {
         return out;
     }
 
-<<<<<<< HEAD
-    /*public String showPriorityQ(int lab){
-        String out = "";
-=======
     public String showPriorityQ(int lab) throws Exception{
     	
     	String out = "";
->>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
 
         if(lab == 1){
             int length= hematology.getHeapsize();
@@ -238,6 +220,7 @@ public class Control {
           int i = 1;
           while(forPrint.getHeapsize()>0){
             out += "["+ i +"] " + forPrint.extract().toString() + "\n";
+            i++;
           }
 
         }else{
@@ -246,35 +229,11 @@ public class Control {
             int j = 1;
           while(forPrint.getHeapsize()>0){
             out += "[" + j +"] " + forPrint.extract().toString() + "\n";
+            j++;
           }
         }
 
         return out;
-    }*/
-
-    public String showPriorityQ(int lab) throws Exception{
-
-        String out = "";
-
-        if(lab == 1){
-            int length= hematology.getHeapsize();
-          PriorityQueue<User> forPrint = new PriorityQueue<>(hematology.clone(), length) ;
-            
-          while(forPrint.getHeapsize()>0){
-            out += forPrint.extract().toString() + "\n";
-          }
-
-        }else{
-            int length = general.getHeapsize();
-            PriorityQueue<User> forPrint = new PriorityQueue<>(general.clone(), length) ;
-            
-          while(forPrint.getHeapsize()>0){
-            out += forPrint.extract().toString() + "\n";
-          }
-        }
-
-        return out;
-
     }
 
      public User[] sortIntegerArrayInsertion(User [] array) {

@@ -1,5 +1,6 @@
 {
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "c:\\Users\\sam16\\OneDrive\\Universidad\\Semestre 3\\Discretas I\\Seguimientos\\Seguimiento10\\lib\\junit-4.13.2.jar"
     ]
 }
