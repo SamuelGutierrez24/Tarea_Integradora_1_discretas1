@@ -9,6 +9,7 @@ public class PriorityQueue <T>  implements IPriorityQueue<T> {
     public PriorityQueue(){
         heap = new Heap<T>();
     }
+    
     public PriorityQueue(Node<T> [] array, int length){
         heap = new Heap<>(array, length);
     }

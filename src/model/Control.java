@@ -13,14 +13,13 @@ public class Control {
     private Stack<User> czGeneral;
     private Stack<User> czHematology;
     public Control(){
+    	
         hematology = new PriorityQueue<>(); 
         general = new PriorityQueue<>();
         hashMap = new HashTable<>();
         czGeneral = new Stack<>();
         czHematology = new Stack<>();
-         
-
-    
+           
     }
 
     public boolean searchClientBool(String id){
@@ -43,7 +42,7 @@ public class Control {
         if(user != null){
             return user.toString();
         }else{
-            return "He is not registered";
+            return "He is not registered.\n";
         }
     }
 
@@ -64,9 +63,14 @@ public class Control {
 
    
     public void registerClient(String name, int age, String id, int gender1, boolean pregnancy, boolean illness,  int key){
+<<<<<<< HEAD
         
         Gender gender = null;
         
+=======
+    	Gender gender = null;
+
+>>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
         switch(gender1){
             case 1:
                 gender = Gender.FEMALE;
@@ -75,7 +79,11 @@ public class Control {
                 gender = Gender.MALE;
             break;
         }
+<<<<<<< HEAD
         
+=======
+      
+>>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
         User user = new User( name, age,  id,  gender, pregnancy,  illness, key);
         //Insertamos el usuario en la base de datos
         hashMap.insert(id,user);
@@ -122,31 +130,53 @@ public class Control {
     	for(int i = 0; i < hashMap.getLength() ; i++){
     		
     		if(hashMap.isEmpty(i) == false) {
+<<<<<<< HEAD
     			users.add(hashMap.getValue(i));
                 System.out.println(hashMap.getValue(i).getGender());
     		}
+=======
+
+                users.add(hashMap.getValue(i));
+                //System.out.println(hashMap.getValue(i) + " - " + hashMap.getValue(i).getId() + " - " + hashMap.getValue(i).getGender());
+                
+                if(hashMap.getNext(i) != null){
+        			
+        			HashNode<User, String> node = hashMap.getNext(i);
+        			users.add(node.getValue());
+
+        			while (node.getNext() != null){
+        				users.add(node.getValue());
+        			}
+                }
+
+    		} 
+>>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
     		
     	}
     	
     	String x = "";
     	
-    	for(int i = 0; i < users.size(); i++) {
-    		x += users.get(i);
+    	for(int j = 0; j < users.size(); j++) {
+    		x += users.get(j);
     	}
     	
     	ToJsonWriter.write(users);
     	
-    	System.out.println(x.toString());
+    	//System.out.println(x.toString());
     }
     
     public void loadTxt() {
     	
-    	for(int i = 0; i < ToJsonReader.read().size(); i++) {
+    	if(ToJsonReader.read() != null) {
     	
-    		hashMap.insert(ToJsonReader.read().get(i).getId(), ToJsonReader.read().get(i));  
+    		for(int i = 0; i < ToJsonReader.read().size(); i++) {
     	
+    			hashMap.insert(ToJsonReader.read().get(i).getId(), ToJsonReader.read().get(i));  
+    	
+    		}
+    	} else {
+    		System.out.println("No hay nada en la base de datos.");
     	}
-    	
     	
     }
     
@@ -193,29 +223,32 @@ public class Control {
         return out;
     }
 
+<<<<<<< HEAD
     /*public String showPriorityQ(int lab){
         String out = "";
+=======
+    public String showPriorityQ(int lab) throws Exception{
+    	
+    	String out = "";
+>>>>>>> dd3c398131a53f4da31554e6dde048e21c13d293
 
         if(lab == 1){
-
-
-             User [] forPrint = hematology.clone();
-            forPrint = sortIntegerArrayInsertion(forPrint);
-            for(int i = forPrint.length-1;i>=0;i--){
-                out += "[ " +  forPrint[i].toString() + " ]-";
-            }
-
+            int length= hematology.getHeapsize();
+          PriorityQueue<User> forPrint = new PriorityQueue<>(hematology.clone(), length) ;
+          int i = 1;
+          while(forPrint.getHeapsize()>0){
+            out += "["+ i +"] " + forPrint.extract().toString() + "\n";
+          }
 
         }else{
-
-            User [] forPrint = general.clone();
-            forPrint = sortIntegerArrayInsertion(forPrint);
-            for(int i = forPrint.length-1;i>=0;i--){
-                out += "[" +  forPrint[i].toString() + "]";
-            }
-
-
+            int length = general.getHeapsize();
+            PriorityQueue<User> forPrint = new PriorityQueue<>(general.clone(), length) ;
+            int j = 1;
+          while(forPrint.getHeapsize()>0){
+            out += "[" + j +"] " + forPrint.extract().toString() + "\n";
+          }
         }
+
         return out;
     }*/
 
@@ -257,6 +290,9 @@ public class Control {
                 array[verde+1] = array[verde];
                 verde--;
             }
+            //if(array[verde].getKey() == array[rojo].getKey()) {
+            //	System.out.println("Prueba");
+            //}
             array[verde+1] = userRojo;
         }
        

@@ -26,7 +26,7 @@ public class ToJsonReader {
         
         try {
         	
-        	File f = new File("PruebaUser.txt");
+        	File f = new File("BaseDatos.txt");
         	
             BufferedReader br = new BufferedReader(new FileReader(f.getAbsolutePath()));
 
@@ -53,8 +53,15 @@ public class ToJsonReader {
          
         java.lang.reflect.Type userArrayListType = new TypeToken<ArrayList<User>>() {}.getType();
         
-        ArrayList<User> userArrayList = gson.fromJson(json, userArrayListType);
-            
+        ArrayList<User> userArrayList = null;
+        
+        String y = "" ;
+        
+        if(json != null) {
+        
+        	userArrayList = gson.fromJson(json, userArrayListType);
+           
+        }
 
         return userArrayList;
 		

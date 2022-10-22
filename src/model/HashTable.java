@@ -15,7 +15,6 @@ public class HashTable <T, K> implements IhashTable<T, K> {
         int position = hash(key);
         int firstHash = -1;
         int i = 1;
-        System.out.println(position);
         
         while(hashB[position] != null && position != firstHash ){
             
@@ -23,7 +22,6 @@ public class HashTable <T, K> implements IhashTable<T, K> {
             position = hash(i,key);
             i++;
         }
-        System.out.println(position);
 
         HashNode<T,K> node = new HashNode<T,K>(key, value);
         if(firstHash == position){
@@ -113,8 +111,8 @@ public class HashTable <T, K> implements IhashTable<T, K> {
 
                     }
 
-                }else{
-                    position = hash(i,key);
+                } else {
+                	position = hash(i,key);
                     i++;
                 }
             }
@@ -148,7 +146,11 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     	return x;
     }
     
-   
+    public HashNode getNext(int i) {
+
+        return hashB[i].getNext();
+
+    }
         
 }
     
