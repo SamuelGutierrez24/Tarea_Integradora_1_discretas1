@@ -90,51 +90,36 @@ public class HashTable <T, K> implements IhashTable<T, K> {
         
         if(hashB[position] != null){
 
-            while(!flag && i<83 ){
+            while(i<83 ){
                 
-
-                if(hashB[position] != null && hashB[position].getKey().equals(key)){
-                    flag = true;
-                }else if(firstHash == position && i>0){
-                    flag = true;
-                }else{
-                    position = hash(i,key);
-                    i++;
-                }
-                if(i != 0){
-                    firstHash = hash(key);
-                }
-            }
-            
-            if(firstHash == position){
-        
-                if(hashB[position] != null){
-                    HashNode<T,K> node = hashB[position];
+                if(hashB[position] != null || hashB[position].getKey().equals(key)){
                     
-                    while(!node.getKey().equals(key)){
+                    if(hashB[position].getKey().equals(key)){
+                        flag = true;
+                        return hashB[position].getValue();
+                    }else{
+                        HashNode<T,K> node = hashB[position];
                         
-                        if(node.getNext() != null){
-                            node = node.getNext();
-                        }else{
-                            return null;
+                        while(node.getNext()!= null){
+                            
+                            if(node.getNext().getKey().equals(key)){
+                                return node.getNext().getValue();
+                            }else{
+                                node = node.getNext();
+                            }
                         }
-                        
+                        position = hash(i,key);
+                        i++;
+
                     }
-                    return node.getValue();
-                }else{
-                    return null;
+
                 }
-    
-            }else{
-                HashNode<T,K> node = hashB[position];
-                return node.getValue();
             }
+                return null;
         }else{
             return null;
         }
-
-      
-    
+         
     }
     
     public int getLength(){
