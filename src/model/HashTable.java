@@ -7,7 +7,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
     private HashNode<T,K> [] hashB;
 
     public HashTable(){
-        hashB = (HashNode<T , K>[]) new HashNode[10];
+        hashB = (HashNode<T , K>[]) new HashNode[83];
     }
 
     @Override
@@ -52,7 +52,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
             upgrade++;
         }
         
-        double m = 10; //Math.pow(2, 3);
+        double m = 83; //Math.pow(2, 3);
         double a = (Math.sqrt(5)-1)/2;
         int position = (int) ((int) m*((value*a)%1));
     
@@ -72,7 +72,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
             upgrade++;
         }
         
-        double m = 10; //Math.pow(2, 3);
+        double m = 83; //Math.pow(2, 3);
         double a = (Math.sqrt(5)-1)/2;
         int position = (int) ((int) m*(value*a%1));
         position = (int) ((int) (position + 7*i  + (5*Math.pow(i,2)))%m);
@@ -92,7 +92,7 @@ public class HashTable <T, K> implements IhashTable<T, K> {
 
             while(i<83 ){
                 
-                if(hashB[position] != null || hashB[position].getKey().equals(key)){
+                if(hashB[position] != null){
                     
                     if(hashB[position].getKey().equals(key)){
                         flag = true;
@@ -113,6 +113,9 @@ public class HashTable <T, K> implements IhashTable<T, K> {
 
                     }
 
+                }else{
+                    position = hash(i,key);
+                    i++;
                 }
             }
                 return null;

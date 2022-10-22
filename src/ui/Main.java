@@ -161,7 +161,7 @@ public class Main {
 		System.out.println(control.undo(lab));
 	   }
 
-	   public void showOrder(){
+	   public void showOrder() throws Exception{
 		System.out.println("Please enter the lab which you want to see the order (1) Hematology (2) General propouse : ");
 		int lab = sc.nextInt();
 		sc.nextLine();

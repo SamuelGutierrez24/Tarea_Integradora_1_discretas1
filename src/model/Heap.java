@@ -8,6 +8,10 @@ public class Heap <T> implements Iheap <T>{
     public Heap(){
         heapA = (Node<T>[]) new Node[200];
     }
+    public Heap(Node<T> [] array, int i){
+        heapA = array;
+        heapSize = i;
+    }
     @Override
     public void maxHepify(int i) {
        
@@ -121,15 +125,6 @@ public class Heap <T> implements Iheap <T>{
             heapSize = heapSize-1;
             maxHepify(0);
             return node.getValue();
-
-
-
-            /*heapSize = heapSize-1;
-            int j = 1;
-            for(int i = 0; i<= heapSize-1 && j<= heapSize;i++){
-                heapA[i] = heapA[j];
-            }
-            return node.getValue();*/
         }
     }
 
@@ -169,17 +164,10 @@ public class Heap <T> implements Iheap <T>{
         return heapSize;
     }
     @Override
-    public T [] clone(){
-        
-        T [] heapAA = (T[]) new User [heapSize];
-
-        for(int i = 0 ; i<=heapSize-1;i++){
-            heapAA[i] = heapA[i].getValue();
-        }
-
-        return heapAA;
-    
+    public Node<T> [] clone(){
+        return heapA.clone();
     }
+    
 
 
     

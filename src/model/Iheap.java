@@ -12,7 +12,8 @@ public interface Iheap<T> {
     public T extract()throws Exception;
     public void extractByUndo(T user) throws Exception;
     public int getHeapsize();
-    public T [] clone();
+    public Node<T> [] clone();
+    
     
     
 }

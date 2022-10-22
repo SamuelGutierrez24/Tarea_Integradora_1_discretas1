@@ -64,14 +64,18 @@ public class Control {
 
    
     public void registerClient(String name, int age, String id, int gender1, boolean pregnancy, boolean illness,  int key){
-        Gender gender;
-        if(gender1 ==1){
-        gender = Gender.MALE;
-
-      }else{
-            gender = Gender.FEMALE;
-
-      }
+        
+        Gender gender = null;
+        
+        switch(gender1){
+            case 1:
+                gender = Gender.FEMALE;
+            break;
+            case 2 :
+                gender = Gender.MALE;
+            break;
+        }
+        
         User user = new User( name, age,  id,  gender, pregnancy,  illness, key);
         //Insertamos el usuario en la base de datos
         hashMap.insert(id,user);
@@ -119,6 +123,7 @@ public class Control {
     		
     		if(hashMap.isEmpty(i) == false) {
     			users.add(hashMap.getValue(i));
+                System.out.println(hashMap.getValue(i).getGender());
     		}
     		
     	}
@@ -188,7 +193,7 @@ public class Control {
         return out;
     }
 
-    public String showPriorityQ(int lab){
+    /*public String showPriorityQ(int lab){
         String out = "";
 
         if(lab == 1){
@@ -212,6 +217,31 @@ public class Control {
 
         }
         return out;
+    }*/
+
+    public String showPriorityQ(int lab) throws Exception{
+
+        String out = "";
+
+        if(lab == 1){
+            int length= hematology.getHeapsize();
+          PriorityQueue<User> forPrint = new PriorityQueue<>(hematology.clone(), length) ;
+            
+          while(forPrint.getHeapsize()>0){
+            out += forPrint.extract().toString() + "\n";
+          }
+
+        }else{
+            int length = general.getHeapsize();
+            PriorityQueue<User> forPrint = new PriorityQueue<>(general.clone(), length) ;
+            
+          while(forPrint.getHeapsize()>0){
+            out += forPrint.extract().toString() + "\n";
+          }
+        }
+
+        return out;
+
     }
 
      public User[] sortIntegerArrayInsertion(User [] array) {
