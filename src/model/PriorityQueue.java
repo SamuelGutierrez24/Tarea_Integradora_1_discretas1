@@ -9,6 +9,10 @@ public class PriorityQueue <T>  implements IPriorityQueue<T> {
     public PriorityQueue(){
         heap = new Heap<T>();
     }
+    
+    public PriorityQueue(Node<T> [] array, int length){
+        heap = new Heap<>(array, length);
+    }
 
     @Override
     public void insert(T obj,int key)throws Exception {
@@ -39,7 +43,7 @@ public class PriorityQueue <T>  implements IPriorityQueue<T> {
     public int getHeapsize(){
         return heap.getHeapsize();
     }
-    public T[] clone(){
+    public Node<T> [] clone(){
         return heap.clone();
     }
 
